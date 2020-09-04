@@ -1,3 +1,6 @@
+import model.Customer;
+import utils.InputValidator;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -64,13 +67,27 @@ public class CustomerManager {
                 case "phone" : {
                     System.out.println("enter new phone number : ");
                     String newPhone = new Scanner(System.in).nextLine();
-                    customer.setPhoneNumber(newPhone);
+
+                    /* 샘플 validation 로직 */
+                    boolean isValid = InputValidator.getInstance().validatePhoneNumber(newPhone);
+                    if(isValid){
+                        customer.setPhoneNumber(newPhone);
+                    }else{
+                        System.out.println("Invalid Phone Number !");
+                    }
                     break;
                 }
                 case "email" : {
                     System.out.println("enter new email : ");
                     String newEmail = new Scanner(System.in).nextLine();
-                    customer.setEmail(newEmail);
+
+                    /* 샘플 validation 로직 */
+                    boolean isValid = InputValidator.getInstance().validateEmail(newEmail);
+                    if(isValid){
+                        customer.setEmail(newEmail);
+                    }else{
+                        System.out.println("Invalid Email!");
+                    }
                     break;
                 }
                 case "addr" : {

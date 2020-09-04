@@ -1,3 +1,7 @@
+package model;
+
+import utils.InputValidator;
+
 public class Customer {
 
     private String id;

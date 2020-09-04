@@ -1,4 +1,8 @@
-import java.io.File;
+package utils;
+
+import model.Customer;
+import model.Interaction;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;

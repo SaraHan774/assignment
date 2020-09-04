@@ -1,4 +1,8 @@
 
+import model.Customer;
+import model.Interaction;
+import utils.FileUtils;
+
 import java.util.Scanner;
 
 public class Main {
@@ -94,13 +98,13 @@ public class Main {
     }
 
     private static String enterInteractionIdPrompt(){
-        System.out.print("Enter Interaction Id : ");
+        System.out.print("Enter model.Interaction Id : ");
         Scanner interactionIdInput = new Scanner(System.in);
         return interactionIdInput.nextLine();
     }
 
 
-    /* Customer 관련된 메서드 */
+    /* model.Customer 관련된 메서드 */
     public static void addCustomer(){
 
         Customer customer = createCustomerObject();
@@ -173,15 +177,16 @@ public class Main {
     }
 
 
-    /* Interaction 관련된 메서드 */
+    /* model.Interaction 관련된 메서드 */
     private static void addInteractionInfo() {
+
         Interaction interaction = createInteractionObject();
 
         boolean isAdded = salesPeople.addInteraction(interaction);
         if(isAdded){
-            System.out.println("Interaction added successfully!\n" + interaction);
+            System.out.println("model.Interaction added successfully!\n" + interaction);
         }else{
-            System.out.println("Interaction add failed !");
+            System.out.println("model.Interaction add failed !");
         }
     }
 
@@ -216,7 +221,7 @@ public class Main {
         String dateOfInteraction = interactionInfoInput.nextLine();
         interaction.setDateOfInteraction(dateOfInteraction);
 
-        System.out.print("Customer ID : ");
+        System.out.print("model.Customer ID : ");
         String customerId = interactionInfoInput.nextLine();
         Customer customer = customerManager.getCustomerById(customerId);
 
@@ -229,7 +234,7 @@ public class Main {
         }
         interaction.setCustomer(customer);
 
-        System.out.print("Interaction Method (SNS / email / telephone / face to face) : ");
+        System.out.print("model.Interaction Method (SNS / email / telephone / face to face) : ");
         String method = interactionInfoInput.nextLine();
         interaction.setInteractionMethod(method);
 
