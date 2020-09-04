@@ -29,7 +29,6 @@ public class SalesPeople{
         printInteractionUpdateManual();
 
         Scanner s = new Scanner(System.in);
-        String target = s.nextLine();
         String newInfo = "";
         boolean isDone = false;
         Interaction inter = null;
@@ -44,6 +43,8 @@ public class SalesPeople{
         }
 
         while(!isDone) {
+            String target = s.nextLine();
+
             switch (target) {
                 case "date": {
                     newInfo = updateInfoPrompt(target);
@@ -61,6 +62,7 @@ public class SalesPeople{
                 }
                 case "0": {
                     isDone = true;
+                    break;
                 }
                 default: {
                     System.out.println("wrong input!");
