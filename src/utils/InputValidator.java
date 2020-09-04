@@ -7,9 +7,7 @@ public class InputValidator {
 // Singleton pattern 참고 : https://gocoder.tistory.com/1857
     private static InputValidator instance;
 
-    private InputValidator(){
-
-    }
+    private InputValidator(){ }
 
     public static InputValidator getInstance(){
         if(instance == null){

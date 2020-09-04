@@ -26,12 +26,8 @@ public class CustomerManager {
     }
 
     public boolean updateCustomer(String customerId){
-        Customer customer = null;
-        for (int i = 0; i < customers.size(); i++) {
-            if(customerId.equals(customers.get(i).getId())){
-                customer = customers.get(i);
-            }
-        }
+
+        Customer customer = getCustomerById(customerId);
 
         if(customer == null){
             return false;
@@ -111,13 +107,12 @@ public class CustomerManager {
     }
 
     public boolean deleteCustomer(String customerId){
-        for (int i = 0; i < customers.size(); i++) {
-            if(customerId.equals(customers.get(i).getId())){
-                // id 와 일치하는 고객을 리스트에서 삭제한다.
-                return customers.remove(customers.get(i));
-            }
+        Customer customer = getCustomerById(customerId);
+        if(customer == null){
+            return false;
+        }else{
+            return customers.remove(customer);
         }
-        return false;
     }
 
     public void printAllCustomers(){
